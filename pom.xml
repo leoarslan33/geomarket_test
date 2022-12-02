@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>SHM-WEB</groupId>
+    <artifactId>testAutomations</artifactId>
+    <version>1.0-SNAPSHOT</version>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+        <aspectj.version>1.8.10</aspectj.version>
+        <junit.version>4.12</junit.version>
+        <slf4j.version>1.7.28</slf4j.version>
+        <logback.version>1.2.3</logback.version>
+        <surefire.version>3.0.0-M3</surefire.version>
+        <jfairy.version>0.6.0</jfairy.version>
+        <htmlunit.version>2.33.3</htmlunit.version>
+        <chromedriver.version>3.141.59</chromedriver.version>
+    </properties>
+
+    <dependencies>
+
+        <dependency>
+            <groupId>com.devskiller</groupId>
+            <artifactId>jfairy</artifactId>
+            <version>${jfairy.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.httpcomponents</groupId>
+            <artifactId>httpclient</artifactId>
+            <version>4.5.10</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.seleniumhq.selenium</groupId>
+            <artifactId>selenium-chrome-driver</artifactId>
+            <version>${chromedriver.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.seleniumhq.selenium</groupId>
+            <artifactId>htmlunit-driver</artifactId>
+            <version>${htmlunit.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>${junit.version}</version>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <version>${slf4j.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>io.cucumber</groupId>
+            <artifactId>cucumber-java</artifactId>
+            <version>7.5.0</version>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-classic</artifactId>
+            <version>${logback.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>io.cucumber</groupId>
+            <artifactId>cucumber-core</artifactId>
+            <version>7.9.0</version>
+        </dependency>
+
+
+        <dependency>
+            <groupId>io.qameta.allure</groupId>
+            <artifactId>allure-junit4</artifactId>
+            <version>2.19.0</version>
+            <scope>test</scope>
+        </dependency>
+
+
+        <dependency>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-core</artifactId>
+            <version>${logback.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>io.github.bonigarcia</groupId>
+            <artifactId>webdrivermanager</artifactId>
+            <version>5.2.0</version>
+        </dependency>
+
+
+        <dependency>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-surefire-report-plugin</artifactId>
+            <version>${surefire.version}</version>
+            <type>maven-plugin</type>
+        </dependency>
+
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>${surefire.version}</version>
+                <configuration>
+                    <useFile>false</useFile>
+                    <runOrder>alphabetical</runOrder>
+                    <argLine>-Dfile.encoding=${project.build.sourceEncoding}</argLine>
+                    <testFailureIgnore>true</testFailureIgnore>
+                    <argLine>
+                        -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar"
+                    </argLine>
+                    <properties>
+                        <property>
+                            <name>listener</name>
+                            <value>io.qameta.allure.junit4.AllureJunit4</value>
+                        </property>
+                    </properties>
+                    <includes>
+
+                        <!--                        Klasör altında bulunan sadece istediğimiz classları yukarıdan aşağı sıralı şekilde çalıştırmak için-->
+                        <!--                        <include>*/seleniumTests/AramaYap/AramalariTemizle.java</include>-->
+                        <!--                        <include>*/seleniumTests/AramaYap/HgmArama.java</include>-->
+                        <!--                        <include>*/seleniumTests/AramaYap/FiltreliArama.java</include>-->
+                        <!--                        <include>*/seleniumTests/AramaYap/TC_hatArama.java</include>-->
+                        <!--                        <include>*/seleniumTests/AramaYap/Idarisinirpafta.java</include>-->
+                        <!--                        <include>*/seleniumTests/AramaYap/GoogleArama.java</include>-->
+
+
+                        <!--                        <include>*/seleniumTests/AramaYap/GoogleArama.java</include>-->
+                        <!--                        <include>*/seleniumTests/AramaYap/Idarisinirpafta.java</include>-->
+                        <!--                        <include>*/seleniumTests/AramaYap/TC_hatArama.java</include>-->
+
+                        <!--                        <include>*/seleniumTests/CizimAraclariAlanEkle/AlanEkleNesneyeKaydet.java</include>-->
+                        <!--                        <include>*/seleniumTests/CizimAraclariAlanEkle/AlanEkleYeniNesneOlarakKaydet.java</include>-->
+                        <!--                        <include>*/seleniumTests/CizimAraclariAlanEkle/AlanEkleDüzenlemePaneliİslemler.java</include>-->
+
+
+                        <!--                        <include>*/seleniumTests/DigerAraclar/GörünürAlandakiVeriler.java</include>-->
+                        <!--                        <include>*/seleniumTests/YoneticiPaneli/Haritacikis.java</include>-->
+<!--                        <include>*/seleniumTest/HaritaAltlığı/HaritaAltligi.java</include>&lt;!&ndash;-->
+<!--                            <include>*/seleniumTests/CizimAraclariMetinEkle/MetinEkleDüzenlemePaneliindir.java</include>&ndash;&gt;-->
+                        <!--                        <include>*/seleniumTests/OlcumAraclari/AlanOlcmeAraci.java</include>&ndash;&gt;-->
+                        <!---->
+
+
+
+
+
+                        <!--                        <include>*/seleniumTests/AramaYap/TC_hatArama.java</include>-->
+                        <!--                        <include>*/seleniumTests/AramaYap/Idarisinirpafta.java</include>-->
+                        <!--                        <include>*/seleniumTests/AramaYap/GoogleArama.java</include>-->
+                        <!--                        -->
+
+
+
+
+                        <!--                        Klasörde bulunan tüm classları sırasız çalıştırmak için -->
+                        <!--                        <include>*/seleniumTests/AramaYap/*.java</include>-->
+                        <!--                        <include>*/seleniumTests/CizimTasi/*.java</include>-->
+
+
+
+
+
+                        <!--                        Yazılmış olan tüm classları çalıştırmak için-->
+                                                <include>*/seleniumTest/*/*.java</include>
+                                                <include>*/seleniumTest/*/*/*.java</include>
+
+
+
+                        <!--                        <include>*/</include>-->
+
+                    </includes>
+                </configuration>
+                <dependencies>
+                    <dependency>
+                        <groupId>org.aspectj</groupId>
+                        <artifactId>aspectjweaver</artifactId>
+                        <version>${aspectj.version}</version>
+                    </dependency>
+                </dependencies>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-site-plugin</artifactId>
+                <version>3.7.1</version>
+            </plugin>
+        </plugins>
+    </build>
+
+    <reporting>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>${surefire.version}</version>
+            </plugin>
+        </plugins>
+    </reporting>
+</project>
