@@ -9,7 +9,7 @@ import org.junit.Ignore;
 @Ignore
 public enum Kullanici {
 
-    KULLANICI1("demouser", "demo_2021*"),
+    KULLANICI1("basarsoft.test", "Bsr_2019"),
     KULLANICI2("botas", "123456"),
     KULLANICI3("sube_muduru", "123456"),
     KULLANICI4("daire_baskani", "123456"),

@@ -36,14 +36,14 @@ public class TestBase extends TestCase {
     protected static FluentWait<WebDriver> Fwait;
     protected static Actions actions; //1. eklenecek yer.
     protected  static long randomLong = ((long)((Math.random() * 1000)+1000));
-    protected static final String SERVIS_ADRESI = "https://live.basarsoft.com.tr/mania/web/#/login";
+    protected static final String SERVIS_ADRESI = "https://geomarkettest.basarsoft.com.tr/geomarket_pro/web/Login";
     protected String servisAdresi = SERVIS_ADRESI;
     protected static final Logger Logger = LoggerFactory.getLogger(TestBase.class);
     protected JavascriptExecutor scroll;
     protected StringBuffer verificationErrors = new StringBuffer();
     ChromeOptions options = new ChromeOptions();
 
-    boolean isHeadless = true;
+    boolean isHeadless = false;
 
 
     @Before
@@ -112,11 +112,11 @@ public class TestBase extends TestCase {
     public void kullaniciGirisYap(WebDriver driver, Kullanici kullanici){
         try{
             driver.manage().window().maximize();
-            driver.findElement(By.xpath("//body/div[@id='root']/div[1]/div[2]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/input[1]")).clear();
-            driver.findElement(By.xpath("//body/div[@id='root']/div[1]/div[2]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/input[1]")).sendKeys(kullanici.getAd());
-            driver.findElement(By.cssSelector("#root > div > div.bg > div > div:nth-child(3) > div:nth-child(2) > div.MuiGrid-root.MuiGrid-item.MuiGrid-grid-xs-11 > div > div > input")).clear();
-            driver.findElement(By.cssSelector("#root > div > div.bg > div > div:nth-child(3) > div:nth-child(2) > div.MuiGrid-root.MuiGrid-item.MuiGrid-grid-xs-11 > div > div > input")).sendKeys(kullanici.getSifre());
-            driver.findElement(By.xpath("//body/div[@id='root']/div[1]/div[2]/div[1]/div[4]/button[1]")).click();
+            driver.findElement(By.xpath("//body/div[1]/div[1]/div[1]/div[1]/div[2]/form[1]/div[1]/input[1]")).clear();
+            driver.findElement(By.xpath("//body/div[1]/div[1]/div[1]/div[1]/div[2]/form[1]/div[1]/input[1]")).sendKeys(kullanici.getAd());
+            driver.findElement(By.xpath("//body/div[1]/div[1]/div[1]/div[1]/div[2]/form[1]/div[2]/input[1]")).clear();
+            driver.findElement(By.xpath("//body/div[1]/div[1]/div[1]/div[1]/div[2]/form[1]/div[2]/input[1]")).sendKeys(kullanici.getSifre());
+            driver.findElement(By.xpath("//button[@id='kt_login_signin_submit']")).click();
             Thread.sleep(5000);
         }catch (Exception e){
             Logger.warn("Giriş Yapılamadı.!");
