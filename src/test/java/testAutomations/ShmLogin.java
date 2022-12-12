@@ -7,10 +7,6 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
-/**
- * @author Emre Örs
- * @Date 25.04.2022
- */
 public class ShmLogin extends testAutomations.TestBase {
     private String baseUrl;
     private boolean acceptNextAlert = true;
