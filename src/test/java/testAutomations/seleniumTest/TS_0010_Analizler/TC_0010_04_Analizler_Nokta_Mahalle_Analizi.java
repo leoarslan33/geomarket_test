@@ -86,6 +86,6 @@ public class TC_0010_04_Analizler_Nokta_Mahalle_Analizi extends testAutomations.
         görüntüleButonu.click();
 
         System.out.println("Test Tamamlandı!");
-        Thread.sleep(30000);
+        Thread.sleep(3000);
     }
 }

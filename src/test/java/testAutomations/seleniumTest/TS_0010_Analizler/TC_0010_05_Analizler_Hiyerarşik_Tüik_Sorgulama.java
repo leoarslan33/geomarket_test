@@ -69,6 +69,6 @@ public class TC_0010_05_Analizler_Hiyerarşik_Tüik_Sorgulama extends testAutoma
         getirButonu.click();
 
         System.out.println("Test Tamamlandı!");
-        Thread.sleep(30000);
+        Thread.sleep(3000);
     }
 }
