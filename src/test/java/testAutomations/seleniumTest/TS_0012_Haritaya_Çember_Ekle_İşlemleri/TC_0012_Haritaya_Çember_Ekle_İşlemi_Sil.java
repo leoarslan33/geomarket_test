@@ -72,7 +72,7 @@ public class TC_0012_Haritaya_Çember_Ekle_İşlemi_Sil extends testAutomations.
         sayfaAsagıİndir.click();
 
         Actions builder1 = new Actions(driver);
-        builder1.moveToElement(haritaBölgeCiz).clickAndHold().moveByOffset(100, 100).release().perform();
+        builder1.moveToElement(haritaBölgeCiz).clickAndHold().moveByOffset(0, 400).release().perform();
         builder1.doubleClick().perform();
         Thread.sleep(1000);
         builder1.doubleClick().perform();
