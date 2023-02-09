@@ -43,7 +43,7 @@ public class TestBase extends TestCase {
     protected StringBuffer verificationErrors = new StringBuffer();
     ChromeOptions options = new ChromeOptions();
 
-    boolean isHeadless = false;
+    boolean isHeadless = true;
 
 
     @Before
