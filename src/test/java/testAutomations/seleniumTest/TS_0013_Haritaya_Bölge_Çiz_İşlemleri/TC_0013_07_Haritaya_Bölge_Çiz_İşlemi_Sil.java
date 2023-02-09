@@ -1,4 +1,4 @@
-package testAutomations.TS_0003_İl_İlçe_Mahalle_Sınırlarının_Görüntülenmesi;
+package testAutomations.seleniumTest.TS_0013_Haritaya_Bölge_Çiz_İşlemleri;
 
 import org.junit.Test;
 import org.openqa.selenium.JavascriptExecutor;
@@ -9,8 +9,6 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import testAutomations.Kullanici;
-
-import java.security.Key;
 
 
 public class TC_0013_07_Haritaya_Bölge_Çiz_İşlemi_Sil extends testAutomations.TestBase {
@@ -36,6 +34,9 @@ public class TC_0013_07_Haritaya_Bölge_Çiz_İşlemi_Sil extends testAutomation
 
     @FindBy(xpath = "//div[@id='kt_content']")
     public WebElement haritaBölgeCiz;
+
+    @FindBy(css = "#kt_quick_panel_toggle")
+    public WebElement sekmeKapama;
 
     @FindBy(id = "feature-remove")
     public WebElement SilButonu;
@@ -73,8 +74,11 @@ public class TC_0013_07_Haritaya_Bölge_Çiz_İşlemi_Sil extends testAutomation
         Fwait.until(ExpectedConditions.visibilityOf(sayfaAsagıİndir));
         sayfaAsagıİndir.click();
 
+        Fwait.until(ExpectedConditions.visibilityOf(sekmeKapama));
+        sekmeKapama.click();
+
         Actions builder1 = new Actions(driver);
-        builder1.moveToElement(haritaBölgeCiz).clickAndHold().moveByOffset(0, 100).release().perform();
+        builder1.moveToElement(haritaBölgeCiz).clickAndHold().moveByOffset(-600, -400).release().perform();
         builder1.doubleClick().perform();
         Thread.sleep(1000);
         builder1.doubleClick().perform();
@@ -90,7 +94,7 @@ public class TC_0013_07_Haritaya_Bölge_Çiz_İşlemi_Sil extends testAutomation
         SilEvetButonu.click();
 
         Actions builder3 = new Actions(driver);
-        builder3.moveToElement(haritaBölgeCiz).clickAndHold().moveByOffset(0, 100).release().perform();
+        builder3.moveToElement(haritaBölgeCiz).clickAndHold().moveByOffset(0, 0).release().perform();
         builder3.click().perform();
 
         Fwait.until(ExpectedConditions.visibilityOf(SilButonu));

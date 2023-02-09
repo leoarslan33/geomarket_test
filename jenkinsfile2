@@ -7,7 +7,7 @@
                           catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
 
                echo 'Hello World'
-               git credentialsId: 'tfs test', url: 'http://ankaraofis.basarsoft.com.tr:1515/tfs/SEML/SHM_MANIA/_git/SHM_MANIA'
+               git credentialsId: 'tfs test', url: 'http://ankaraofis.basarsoft.com.tr:1515/tfs/SEML/geomarket_test/_git/geomarket_test'
              }
              }
            }
@@ -15,7 +15,7 @@
            stage('Clean and Built') {
              steps {
                catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
-               bat "cd C:/ProgramData/Jenkins/.jenkins/workspace/SHM-Allure"
+               bat "cd C:/ProgramData/Jenkins/.jenkins/workspace/GeoMarket"
                bat " mvn clean"
                bat "mvn compile"
                bat "mvn validate"
@@ -26,7 +26,7 @@
            stage('Test') {
              steps {
                catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
-               bat "cd C:/ProgramData/Jenkins/.jenkins/workspace/SHM-Allure"
+               bat "cd C:/ProgramData/Jenkins/.jenkins/workspace/GeoMarket"
                bat 'mvn test surefire-report:report site'
               }
              }
@@ -34,8 +34,8 @@
            stage('Report') {
              steps {
                 catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
-               publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: true, reportDir: 'C:\\ProgramData\\Jenkins\\.jenkins\\workspace\\SHM\\target\\site', reportFiles: 'surefire-report.html', reportName: 'HTML Report', reportTitles: ''])
-                bat  "cd C:/ProgramData/Jenkins/.jenkins/workspace/BOTAS-Allure"
+               publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: true, reportDir: 'C:\\ProgramData\\Jenkins\\.jenkins\\workspace\\GEOMARKET\\target\\site', reportFiles: 'surefire-report.html', reportName: 'HTML Report', reportTitles: ''])
+                bat  "cd C:/ProgramData/Jenkins/.jenkins/workspace/GeoMarket"
                 bat "allure generate --clean -a"
                allure includeProperties: false, jdk: '', results: [[path: '*/allure-results']]
 
@@ -48,7 +48,7 @@
                                 catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
                                 emailext body: '''$PROJECT_NAME - Build # $BUILD_NUMBER
 
-                                SHM Test Raporu ${BUILD_URL}allure/ adresinden incelenebilir.
+                                GEOMARKET Test Raporu ${BUILD_URL}allure/ adresinden incelenebilir.
                                 Username : reportUser
                                 Password  : Basar1''', subject: 'Test Report', to: 'mert.sen@basarsoft.com.tr, testteam@basarsoft.com.tr, huseyin.arslan@basarsoft.com.tr, sule.hasdeniz@basarsoft.com.tr, hakan.beyhan@basarsoft.com.tr, caglayan@basarsoft.com.tr'
                         }

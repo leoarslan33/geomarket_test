@@ -1,16 +1,13 @@
-package testAutomations.TS_0003_İl_İlçe_Mahalle_Sınırlarının_Görüntülenmesi;
+package testAutomations.seleniumTest.TS_0010_Analizler;
 
 import org.junit.Test;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import testAutomations.Kullanici;
-
-import java.security.Key;
 
 
 public class TC_0010_02_Analizler_Bölge_Analizi extends testAutomations.TestBase {
@@ -19,7 +16,7 @@ public class TC_0010_02_Analizler_Bölge_Analizi extends testAutomations.TestBas
     @FindBy(css = "#kt_quick_panel > div.quick-panel-toggle > ul:nth-child(2) > li:nth-child(3) > a > i")
     public WebElement analizlerButonu;
 
-    @FindBy(xpath = "//div[contains(text(),'Bölge Analizi')]")
+    @FindBy(xpath = "//body/div[@id='kt_quick_panel']/div[3]/div[1]/div[3]/div[1]/a[3]")
     public WebElement bölgeAnaliziButonu;
 
     @FindBy(css = "#stateDiv > div:nth-child(1) > span > span.selection > span > ul > li > input")

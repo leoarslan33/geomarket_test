@@ -1,4 +1,4 @@
-package testAutomations.TS_0003_İl_İlçe_Mahalle_Sınırlarının_Görüntülenmesi;
+package testAutomations.seleniumTest.TS_0013_Haritaya_Bölge_Çiz_İşlemleri;
 
 import org.junit.Test;
 import org.openqa.selenium.JavascriptExecutor;
@@ -9,8 +9,6 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import testAutomations.Kullanici;
-
-import java.security.Key;
 
 
 public class TC_0013_05_Haritaya_Bölge_Çiz_İşlemi_Düzenle_Başarılı extends testAutomations.TestBase {
