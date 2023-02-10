@@ -28,7 +28,7 @@ public class TC_0010_05_Analizler_Hiyerarşik_Tüik_Sorgulama extends testAutoma
     @FindBy(xpath = "//body/span[1]/span[1]/span[1]/input[1]")
     public WebElement tabloGirisi2;
 
-    @FindBy(xpath = "//button[@id='btn-run-tuik-polygon']")
+    @FindBy(xpath = "//body/div[@id='kt_quick_panel']/div[3]/div[1]/div[3]/div[1]/div[1]/div[3]/button[1]/i[1]")
     public WebElement getirButonu;
 
 
