@@ -1,4 +1,4 @@
-package testAutomations.seleniumTest.TS_0012_Haritaya_Çember_Ekle_İşlemleri;
+package testAutomations.TS_0003_İl_İlçe_Mahalle_Sınırlarının_Görüntülenmesi;
 
 import org.junit.Test;
 import org.openqa.selenium.JavascriptExecutor;
@@ -9,6 +9,8 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import testAutomations.Kullanici;
+
+import java.security.Key;
 
 
 public class TC_0012_Haritaya_Çember_Ekle_İşlemi_Sil extends testAutomations.TestBase {
@@ -72,7 +74,7 @@ public class TC_0012_Haritaya_Çember_Ekle_İşlemi_Sil extends testAutomations.
         sayfaAsagıİndir.click();
 
         Actions builder1 = new Actions(driver);
-        builder1.moveToElement(haritaBölgeCiz).clickAndHold().moveByOffset(0, 400).release().perform();
+        builder1.moveToElement(haritaBölgeCiz).clickAndHold().moveByOffset(100, 100).release().perform();
         builder1.doubleClick().perform();
         Thread.sleep(1000);
         builder1.doubleClick().perform();
