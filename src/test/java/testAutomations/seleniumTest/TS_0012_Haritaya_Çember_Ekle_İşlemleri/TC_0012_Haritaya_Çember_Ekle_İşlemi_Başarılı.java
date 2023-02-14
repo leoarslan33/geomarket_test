@@ -10,8 +10,6 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import testAutomations.Kullanici;
 
-import java.security.Key;
-
 
 public class TC_0012_Haritaya_Çember_Ekle_İşlemi_Başarılı extends testAutomations.TestBase {
     private String baseUrl;
@@ -34,7 +32,7 @@ public class TC_0012_Haritaya_Çember_Ekle_İşlemi_Başarılı extends testAuto
     @FindBy(xpath = "//input[@id='region-name']")
     public WebElement bölgeAdıGirisi;
 
-    @FindBy(xpath = "//input[@id='3605']")
+    @FindBy(xpath = "//input[@id='3606']")
     public WebElement müsteriAdı;
 
     @FindBy(xpath = "//body/div[@id='DataPanel']/div[4]/button[1]")
@@ -81,14 +79,14 @@ public class TC_0012_Haritaya_Çember_Ekle_İşlemi_Başarılı extends testAuto
 
         Fwait.until(ExpectedConditions.visibilityOf(tabloSecimi));
         tabloSecimi.click();
-        filtrelemeButonu.sendKeys("test");
+        filtrelemeButonu.sendKeys("test61");
         filtrelemeButonu.sendKeys(Keys.ENTER);
 
         Fwait.until(ExpectedConditions.visibilityOf(bölgeAdıGirisi));
         bölgeAdıGirisi.sendKeys("otomasyontest");
 
         Fwait.until(ExpectedConditions.visibilityOf(müsteriAdı));
-        müsteriAdı.sendKeys("test");
+        müsteriAdı.sendKeys("123");
 
         Fwait.until(ExpectedConditions.visibilityOf(bölgeEkleKaydetButonu));
         bölgeEkleKaydetButonu.click();

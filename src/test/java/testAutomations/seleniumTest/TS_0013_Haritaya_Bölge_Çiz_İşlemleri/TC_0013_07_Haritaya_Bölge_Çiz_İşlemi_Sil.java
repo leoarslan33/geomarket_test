@@ -78,7 +78,7 @@ public class TC_0013_07_Haritaya_Bölge_Çiz_İşlemi_Sil extends testAutomation
         sekmeKapama.click();
 
         Actions builder1 = new Actions(driver);
-        builder1.moveToElement(haritaBölgeCiz).clickAndHold().moveByOffset(-300, -400).release().perform();
+        builder1.moveToElement(haritaBölgeCiz).clickAndHold().moveByOffset(-300, -200).release().perform();
         builder1.doubleClick().perform();
         Thread.sleep(1000);
         builder1.doubleClick().perform();

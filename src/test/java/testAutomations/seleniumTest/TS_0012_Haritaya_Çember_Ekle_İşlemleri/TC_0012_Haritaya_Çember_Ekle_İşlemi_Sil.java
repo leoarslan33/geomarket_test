@@ -10,8 +10,6 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import testAutomations.Kullanici;
 
-import java.security.Key;
-
 
 public class TC_0012_Haritaya_Çember_Ekle_İşlemi_Sil extends testAutomations.TestBase {
     private String baseUrl;
@@ -64,7 +62,7 @@ public class TC_0012_Haritaya_Çember_Ekle_İşlemi_Sil extends testAutomations.
 
         Fwait.until(ExpectedConditions.visibilityOf(bölgeTabloSecimi));
         bölgeTabloSecimi.click();
-        bölgeTabloSecimiAramaButonu.sendKeys("BOLGE_TEST_001");
+        bölgeTabloSecimiAramaButonu.sendKeys("test61");
         bölgeTabloSecimiAramaButonu.sendKeys(Keys.ENTER);
 
         Fwait.until(ExpectedConditions.visibilityOf(ListeHazırlaButonu));
@@ -74,13 +72,15 @@ public class TC_0012_Haritaya_Çember_Ekle_İşlemi_Sil extends testAutomations.
         sayfaAsagıİndir.click();
 
         Actions builder1 = new Actions(driver);
-        builder1.moveToElement(haritaBölgeCiz).clickAndHold().moveByOffset(100, 100).release().perform();
+        builder1.moveToElement(haritaBölgeCiz).clickAndHold().moveByOffset(-300, 200).release().perform();
+        builder1.doubleClick().perform();
+        Thread.sleep(1000);
         builder1.doubleClick().perform();
         Thread.sleep(1000);
         builder1.doubleClick().perform();
 
         Actions builder2 = new Actions(driver);
-        builder2.moveToElement(haritaBölgeCiz).clickAndHold().moveByOffset(50, 50).release().perform();
+        builder2.moveToElement(haritaBölgeCiz).clickAndHold().moveByOffset(100, 200).release().perform();
         builder2.click().perform();
 
         Fwait.until(ExpectedConditions.visibilityOf(SilButonu));
