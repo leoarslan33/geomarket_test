@@ -11,7 +11,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import testAutomations.Kullanici;
 
 
-public class TC_0013_07_Haritaya_Bölge_Çiz_İşlemi_Sil extends testAutomations.TestBase {
+public class TC_0013_07_02_Bölge_İşlemi_Sil extends testAutomations.TestBase {
     private String baseUrl;
 
     @FindBy(xpath = "//body/div[@id='kt_quick_panel']/div[1]/ul[1]/li[2]/a[1]/i[1]")
@@ -47,7 +47,7 @@ public class TC_0013_07_Haritaya_Bölge_Çiz_İşlemi_Sil extends testAutomation
 
 
     @Test
-    public void testTC_0013_07_Haritaya_Bölge_Çiz_İşlemi_Sil() throws Exception {
+    public void testTC_0013_07_02_Bölge_İşlemi_Sil() throws Exception {
         PageFactory.initElements(driver, this);
         JavascriptExecutor js = (JavascriptExecutor) driver;
 
@@ -83,25 +83,25 @@ public class TC_0013_07_Haritaya_Bölge_Çiz_İşlemi_Sil extends testAutomation
         Thread.sleep(1000);
         builder1.doubleClick().perform();
 
-//        Actions builder2 = new Actions(driver);
-//        builder2.moveToElement(haritaBölgeCiz).clickAndHold().moveByOffset(0, 50).release().perform();
-//        builder2.click().perform();
-//
-//        Fwait.until(ExpectedConditions.visibilityOf(SilButonu));
-//        SilButonu.click();
-//
-//        Fwait.until(ExpectedConditions.visibilityOf(SilEvetButonu));
-//        SilEvetButonu.click();
-
-        Actions builder3 = new Actions(driver);
-        builder3.moveToElement(haritaBölgeCiz).clickAndHold().moveByOffset(0, -100).release().perform();
-        builder3.click().perform();
+        Actions builder2 = new Actions(driver);
+        builder2.moveToElement(haritaBölgeCiz).clickAndHold().moveByOffset(0, 50).release().perform();
+        builder2.click().perform();
 
         Fwait.until(ExpectedConditions.visibilityOf(SilButonu));
         SilButonu.click();
 
         Fwait.until(ExpectedConditions.visibilityOf(SilEvetButonu));
         SilEvetButonu.click();
+
+//        Actions builder3 = new Actions(driver);
+//        builder3.moveToElement(haritaBölgeCiz).clickAndHold().moveByOffset(0, -100).release().perform();
+//        builder3.click().perform();
+//
+//        Fwait.until(ExpectedConditions.visibilityOf(SilButonu));
+//        SilButonu.click();
+//
+//        Fwait.until(ExpectedConditions.visibilityOf(SilEvetButonu));
+//        SilEvetButonu.click();
 
 
         System.out.println("Test Tamamlandı!");
