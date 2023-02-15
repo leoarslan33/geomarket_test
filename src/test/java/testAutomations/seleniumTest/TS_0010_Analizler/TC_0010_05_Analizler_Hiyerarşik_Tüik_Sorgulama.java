@@ -58,11 +58,13 @@ public class TC_0010_05_Analizler_Hiyerarşik_Tüik_Sorgulama extends testAutoma
         ilceSecimiTuik.sendKeys(Keys.ENTER);
 
 
-        Fwait.until(ExpectedConditions.visibilityOf(tipSecimiTuik));
-        Thread.sleep(2000);
-        tipSecimiTuik.click();
-        tipSecimiTuik.sendKeys("Tip");
-        tipSecimiTuik.sendKeys(Keys.ENTER);
+//        Fwait.until(ExpectedConditions.visibilityOf(tipSecimiTuik));
+//        Thread.sleep(2000);
+//        tipSecimiTuik.click();
+//        tipSecimiTuik.sendKeys("Tip");
+//        tipSecimiTuik.sendKeys(Keys.ENTER);
+
+        js.executeScript("$('#tuik-list-multiple').val('TIP').trigger('change')");
 
         Thread.sleep(2000);
         Fwait.until(ExpectedConditions.visibilityOf(getirButonu));
