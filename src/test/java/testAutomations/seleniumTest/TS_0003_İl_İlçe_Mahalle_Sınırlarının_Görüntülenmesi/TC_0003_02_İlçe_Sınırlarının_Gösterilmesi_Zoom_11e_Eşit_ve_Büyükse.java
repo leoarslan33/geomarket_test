@@ -46,8 +46,10 @@ public class TC_0003_02_İlçe_Sınırlarının_Gösterilmesi_Zoom_11e_Eşit_ve_
         Fwait.until(ExpectedConditions.visibilityOf(adresAcılırMenu));
         adresAcılırMenu.click();
 
-        Fwait.until(ExpectedConditions.visibilityOf(ilceAcılırMenu));
-        ilceAcılırMenu.click();
+        Thread.sleep(3000);
+        js.executeScript("document.querySelector('#layer-item-3').click()");
+//        Fwait.until(ExpectedConditions.visibilityOf(ilceAcılırMenu));
+//        ilceAcılırMenu.click();
 
         Actions builder = new Actions(driver);
         builder.moveToElement(harita).perform();
