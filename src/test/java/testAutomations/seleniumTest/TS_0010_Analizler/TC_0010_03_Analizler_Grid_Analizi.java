@@ -58,6 +58,9 @@ public class TC_0010_03_Analizler_Grid_Analizi extends testAutomations.TestBase 
     @FindBy(css = "#DynamicGridPanel > div.jsPanel-ftr.active > button")
     public WebElement analizButonu;
 
+    @FindBy(id = "saved-analyses-name")
+    public WebElement adi;
+
     @Test
     public void testTC_0010_03_Analizler_Grid_Analizi() throws Exception {
         PageFactory.initElements(driver, this);
@@ -74,6 +77,10 @@ public class TC_0010_03_Analizler_Grid_Analizi extends testAutomations.TestBase 
 
         Fwait.until(ExpectedConditions.visibilityOf(gridAnalizButonu));
         gridAnalizButonu.click();
+
+        Fwait.until(ExpectedConditions.visibilityOf(adi));
+        adi.sendKeys("test");
+
 
         Fwait.until(ExpectedConditions.visibilityOf(ilSecimi));
         ilSecimi.click();
