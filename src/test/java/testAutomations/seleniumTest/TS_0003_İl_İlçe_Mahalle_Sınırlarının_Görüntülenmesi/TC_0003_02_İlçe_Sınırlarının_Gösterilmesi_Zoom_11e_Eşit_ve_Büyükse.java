@@ -1,4 +1,4 @@
-package testAutomations.TS_0003_İl_İlçe_Mahalle_Sınırlarının_Görüntülenmesi;
+package testAutomations.seleniumTest.TS_0003_İl_İlçe_Mahalle_Sınırlarının_Görüntülenmesi;
 
 import org.junit.Test;
 import org.openqa.selenium.JavascriptExecutor;

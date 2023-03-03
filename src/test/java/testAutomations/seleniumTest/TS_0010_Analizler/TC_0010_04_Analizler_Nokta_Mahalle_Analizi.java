@@ -1,16 +1,13 @@
-package testAutomations.TS_0003_İl_İlçe_Mahalle_Sınırlarının_Görüntülenmesi;
+package testAutomations.seleniumTest.TS_0010_Analizler;
 
 import org.junit.Test;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import testAutomations.Kullanici;
-
-import java.security.Key;
 
 
 public class TC_0010_04_Analizler_Nokta_Mahalle_Analizi extends testAutomations.TestBase {
@@ -89,6 +86,6 @@ public class TC_0010_04_Analizler_Nokta_Mahalle_Analizi extends testAutomations.
         görüntüleButonu.click();
 
         System.out.println("Test Tamamlandı!");
-        Thread.sleep(30000);
+        Thread.sleep(3000);
     }
 }

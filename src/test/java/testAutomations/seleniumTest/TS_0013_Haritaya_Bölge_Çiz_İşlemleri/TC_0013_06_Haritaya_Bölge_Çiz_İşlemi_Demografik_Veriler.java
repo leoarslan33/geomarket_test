@@ -2,7 +2,6 @@ package testAutomations.seleniumTest.TS_0013_Haritaya_Bölge_Çiz_İşlemleri;
 
 import org.junit.Test;
 import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
@@ -11,7 +10,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import testAutomations.Kullanici;
 
 
-public class TC_0013_01_Haritaya_Bölge_Çiz_İşlemi_Başarılı extends testAutomations.TestBase {
+public class TC_0013_06_Haritaya_Bölge_Çiz_İşlemi_Demografik_Veriler extends testAutomations.TestBase {
     private String baseUrl;
 
     @FindBy(css = "#map-canvas > ul.flex-column.mt-4.nav.pb-3.pl-2.pr-2.pt-3.sticky-toolbar.sticky-toolbar-right.map-draw-tool > li:nth-child(2) > a > i")
@@ -19,6 +18,10 @@ public class TC_0013_01_Haritaya_Bölge_Çiz_İşlemi_Başarılı extends testAu
 
     @FindBy(xpath = "//div[@id='kt_content']")
     public WebElement haritaBölgeCiz;
+
+
+    @FindBy(css = "#feature_popup_div_width_buttons_demografik > div.card-footer.d-flex.justify-content-between.p-3 > button.btn.btn-sm.btn-light-info")
+    public WebElement demografikVeriler;
 
 
     @FindBy(css = "#feature_popup_div_width_buttons_demografik > div.card-footer.d-flex.justify-content-between.p-3 > button.btn.btn-sm.btn-light-success")
@@ -41,7 +44,7 @@ public class TC_0013_01_Haritaya_Bölge_Çiz_İşlemi_Başarılı extends testAu
 
 
     @Test
-    public void testTC_0013_01_Haritaya_Bölge_Çiz_İşlemi_Başarılı() throws Exception {
+    public void testTC_0013_06_Haritaya_Bölge_Çiz_İşlemi_Demografik_Veriler() throws Exception {
         PageFactory.initElements(driver, this);
         JavascriptExecutor js = (JavascriptExecutor) driver;
 
@@ -81,23 +84,10 @@ public class TC_0013_01_Haritaya_Bölge_Çiz_İşlemi_Başarılı extends testAu
         builder5.moveToElement(haritaBölgeCiz).moveByOffset(120, 0).release().perform();
         builder5.click().perform();
 
-        Fwait.until(ExpectedConditions.visibilityOf(kaydetButonu));
-        kaydetButonu.click();
+        Fwait.until(ExpectedConditions.visibilityOf(demografikVeriler));
+        demografikVeriler.click();
 
-        Fwait.until(ExpectedConditions.visibilityOf(tabloSecimi));
-        tabloSecimi.click();
-        filtrelemeButonu.sendKeys("test");
-        filtrelemeButonu.sendKeys(Keys.ENTER);
-
-        Fwait.until(ExpectedConditions.visibilityOf(bölgeAdıGirisi));
-        bölgeAdıGirisi.sendKeys("otomasyontest");
-
-        Fwait.until(ExpectedConditions.visibilityOf(müsteriAdı));
-        müsteriAdı.sendKeys("test");
-
-        Fwait.until(ExpectedConditions.visibilityOf(bölgeEkleKaydetButonu));
-        bölgeEkleKaydetButonu.click();
-
+        Fwait.until(ExpectedConditions.visibilityOf(haritaBölgeCiz));
 
 
         System.out.println("Test Tamamlandı!");
