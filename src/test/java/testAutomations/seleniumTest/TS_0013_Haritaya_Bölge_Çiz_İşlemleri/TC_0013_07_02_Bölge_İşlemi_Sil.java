@@ -14,7 +14,11 @@ import testAutomations.Kullanici;
 public class TC_0013_07_02_Bölge_İşlemi_Sil extends testAutomations.TestBase {
     private String baseUrl;
 
-    @FindBy(xpath = "//body/div[@id='kt_quick_panel']/div[1]/ul[1]/li[2]/a[1]/i[1]")
+    @FindBy(id = ("kt_quick_panel_toggle"))
+    public WebElement ok;
+
+
+    @FindBy(css = "#kt_quick_panel > div.offcanvas-header.offcanvas-header-navs.d-flex.align-items-center.justify-content-between.mb-5 > ul > li:nth-child(2) > a")
     public WebElement aramaİslemleri;
 
     @FindBy(css = "#kt_quick_panel_2 > div.navi.navi-icon-circle.navi-spacer-x-0 > a:nth-child(2)")
@@ -56,6 +60,8 @@ public class TC_0013_07_02_Bölge_İşlemi_Sil extends testAutomations.TestBase 
         }catch (Exception e){
             Logger.warn("Kullanıcı login olamadı.");
         }
+        Fwait.until(ExpectedConditions.visibilityOf(ok));
+        ok.click();
 
         Fwait.until(ExpectedConditions.visibilityOf(aramaİslemleri));
         aramaİslemleri.click();
