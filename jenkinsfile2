@@ -48,7 +48,7 @@ pipeline {
           bat "allure generate --clean -a"
           
           script {
-            def summaryJson = readFile('path/to/allure/report/widgets/summary.json')
+            def summaryJson = readFile('path/to/allure-report/widgets/summary.json')
             def failureCount = summaryJson.statistic.failed
             def successCount = summaryJson.statistic.passed
 
