@@ -37,8 +37,9 @@ public class TC_0005_04_Arama_İşlemleri_Hiyerarşik_Sorgulama extends testAuto
     @FindBy(id = "feature_popup_div_width_buttons_demografik")
     public WebElement small;
 
-
+    
     @Test
+       
     public void testTC_0003_01_İl_Sınırlarının_Gösterilmesi() throws Exception {
         PageFactory.initElements(driver, this);
         JavascriptExecutor js = (JavascriptExecutor) driver;

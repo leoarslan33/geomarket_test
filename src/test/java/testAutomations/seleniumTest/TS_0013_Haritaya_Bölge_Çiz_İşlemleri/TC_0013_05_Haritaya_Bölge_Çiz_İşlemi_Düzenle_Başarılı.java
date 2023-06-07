@@ -106,8 +106,8 @@ public class TC_0013_05_Haritaya_Bölge_Çiz_İşlemi_Düzenle_Başarılı exten
         Fwait.until(ExpectedConditions.visibilityOf(bölgeAdıGirisi));
         bölgeAdıGirisi.sendKeys("otomasyontest");
 
-        Fwait.until(ExpectedConditions.visibilityOf(müsteriAdı));
-        müsteriAdı.sendKeys("test");
+//        Fwait.until(ExpectedConditions.visibilityOf(müsteriAdı));
+//        müsteriAdı.sendKeys("test");
 
         Fwait.until(ExpectedConditions.visibilityOf(bölgeEkleKaydetButonu));
         bölgeEkleKaydetButonu.click();

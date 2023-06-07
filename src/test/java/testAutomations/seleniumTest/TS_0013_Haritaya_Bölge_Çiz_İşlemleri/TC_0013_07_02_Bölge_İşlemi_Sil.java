@@ -14,7 +14,11 @@ import testAutomations.Kullanici;
 public class TC_0013_07_02_Bölge_İşlemi_Sil extends testAutomations.TestBase {
     private String baseUrl;
 
-    @FindBy(xpath = "//body/div[@id='kt_quick_panel']/div[1]/ul[1]/li[2]/a[1]/i[1]")
+    @FindBy(id = ("kt_quick_panel_toggle"))
+    public WebElement ok;
+
+
+    @FindBy(css = "#kt_quick_panel > div.offcanvas-header.offcanvas-header-navs.d-flex.align-items-center.justify-content-between.mb-5 > ul > li:nth-child(2) > a")
     public WebElement aramaİslemleri;
 
     @FindBy(css = "#kt_quick_panel_2 > div.navi.navi-icon-circle.navi-spacer-x-0 > a:nth-child(2)")
@@ -38,10 +42,14 @@ public class TC_0013_07_02_Bölge_İşlemi_Sil extends testAutomations.TestBase 
     @FindBy(css = "#kt_quick_panel_toggle")
     public WebElement sekmeKapama;
 
-    @FindBy(id = "feature-remove")
+
+    @FindBy(css = "#mCSB_1_container > div > div.flex-lg-nowrap.filter-action.col-auto.px-0 > a.text-warning.fa-stack.workspace-filter-datatable")
+    public WebElement tabloSekmesi;
+
+    @FindBy(xpath = "//tbody/tr[1]/td[1]/div[1]/a[2]")
     public WebElement SilButonu;
 
-    @FindBy(xpath = "//button[contains(text(),'Evet')]")
+    @FindBy(css = "#kt_body > div.bootbox.modal.fade.show > div > div > div.modal-footer > button.btn.btn-light-success")
     public WebElement SilEvetButonu;
 
 
@@ -56,6 +64,8 @@ public class TC_0013_07_02_Bölge_İşlemi_Sil extends testAutomations.TestBase 
         }catch (Exception e){
             Logger.warn("Kullanıcı login olamadı.");
         }
+        Fwait.until(ExpectedConditions.visibilityOf(ok));
+        ok.click();
 
         Fwait.until(ExpectedConditions.visibilityOf(aramaİslemleri));
         aramaİslemleri.click();
@@ -65,7 +75,7 @@ public class TC_0013_07_02_Bölge_İşlemi_Sil extends testAutomations.TestBase 
 
         Fwait.until(ExpectedConditions.visibilityOf(bölgeTabloSecimi));
         bölgeTabloSecimi.click();
-        bölgeTabloSecimiAramaButonu.sendKeys("BOLGE_TEST_001");
+        bölgeTabloSecimiAramaButonu.sendKeys("a");
         bölgeTabloSecimiAramaButonu.sendKeys(Keys.ENTER);
 
         Fwait.until(ExpectedConditions.visibilityOf(ListeHazırlaButonu));
@@ -77,15 +87,18 @@ public class TC_0013_07_02_Bölge_İşlemi_Sil extends testAutomations.TestBase 
         Fwait.until(ExpectedConditions.visibilityOf(sekmeKapama));
         sekmeKapama.click();
 
-        Actions builder1 = new Actions(driver);
-        builder1.moveToElement(haritaBölgeCiz).clickAndHold().moveByOffset(-300, -200).release().perform();
-        builder1.doubleClick().perform();
-        Thread.sleep(1000);
-        builder1.doubleClick().perform();
+//        Actions builder1 = new Actions(driver);
+//        builder1.moveToElement(haritaBölgeCiz).clickAndHold().moveByOffset(-300, -200).release().perform();
+//        builder1.doubleClick().perform();
+//        Thread.sleep(1000);
+//        builder1.doubleClick().perform();
+//
+//        Actions builder2 = new Actions(driver);
+//        builder2.moveToElement(haritaBölgeCiz).clickAndHold().moveByOffset(0, 50).release().perform();
+//        builder2.click().perform();
 
-        Actions builder2 = new Actions(driver);
-        builder2.moveToElement(haritaBölgeCiz).clickAndHold().moveByOffset(0, 50).release().perform();
-        builder2.click().perform();
+        Fwait.until(ExpectedConditions.visibilityOf(tabloSekmesi));
+        tabloSekmesi.click();
 
         Fwait.until(ExpectedConditions.visibilityOf(SilButonu));
         SilButonu.click();

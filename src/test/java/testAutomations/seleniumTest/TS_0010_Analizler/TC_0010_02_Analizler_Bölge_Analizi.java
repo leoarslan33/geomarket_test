@@ -16,7 +16,7 @@ public class TC_0010_02_Analizler_Bölge_Analizi extends testAutomations.TestBas
     @FindBy(css = "#kt_quick_panel > div.quick-panel-toggle > ul:nth-child(2) > li:nth-child(3) > a > i")
     public WebElement analizlerButonu;
 
-    @FindBy(xpath = "//body/div[@id='kt_quick_panel']/div[3]/div[1]/div[3]/div[1]/a[3]")
+    @FindBy(css = "#kt_quick_panel_3 > div.navi.navi-icon-circle.navi-spacer-x-0 > a:nth-child(3)")
     public WebElement bölgeAnaliziButonu;
 
     @FindBy(css = "#stateDiv > div:nth-child(1) > span > span.selection > span > ul > li > input")
@@ -60,6 +60,8 @@ public class TC_0010_02_Analizler_Bölge_Analizi extends testAutomations.TestBas
 
         Fwait.until(ExpectedConditions.visibilityOf(bölgeAnaliziButonu));
         bölgeAnaliziButonu.click();
+
+        Thread.sleep(5000);
 
         Fwait.until(ExpectedConditions.visibilityOf(ilSecimi));
         ilSecimi.click();
