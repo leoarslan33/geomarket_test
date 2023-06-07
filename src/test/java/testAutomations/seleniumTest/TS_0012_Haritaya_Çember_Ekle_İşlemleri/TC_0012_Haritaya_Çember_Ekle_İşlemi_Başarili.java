@@ -1,4 +1,4 @@
-package testAutomations.seleniumTest.TS_0012_Haritaya_Çember_Ekle_İşlemleri.;
+package testAutomations.seleniumTest.TS_0012_Haritaya_Çember_Ekle_İşlemleri;
 
 import org.junit.Test;
 import org.openqa.selenium.JavascriptExecutor;
@@ -8,6 +8,7 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import testAutomations.Kullanici;
 
 
 public class TC_0012_Haritaya_Çember_Ekle_İşlemi_Başarili extends testAutomations.TestBase {
