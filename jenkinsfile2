@@ -42,24 +42,24 @@ pipeline {
     }
 
     stage('Mail') {
-      steps {
-        catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
-          bat "cd C:/ProgramData/Jenkins/.jenkins/workspace/GeoMarket"
-          bat "allure generate --clean -a"
-          
-          script {
-            def summaryJson = readFile('C:/ProgramData/Jenkins/.jenkins/workspace/GeoMarket/allure-report/widgets/summary.json')
-            def failureCount = summaryJson.statistic.failed
-            def successCount = summaryJson.statistic.passed
+          steps {
+            catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
+              bat "cd C:/ProgramData/Jenkins/.jenkins/workspace/GeoMarket"
+              bat "allure generate --clean -a"
 
-            emailext body: '''$PROJECT_NAME - Build # $BUILD_NUMBER
+              script {
+                def summaryJson = readJSON file: 'allure-report/widgets/summary.json'
+                def failureCount = summaryJson.statistic.failed
+                def successCount = summaryJson.statistic.passed
 
-            Hatalar: $failureCount
-            Başarılı: $successCount
+                emailext body: '''$PROJECT_NAME - Build # $BUILD_NUMBER
 
-            GEOMARKET Test Raporu ${BUILD_URL}allure/ adresinden incelenebilir.
-            Username: reportUser
-            Password: Basar1''', subject: 'Test Report', to: 'mert.sen@basarsoft.com.tr, testteam@basarsoft.com.tr, huseyin.arslan@basarsoft.com.tr, sule.hasdeniz@basarsoft.com.tr, hakan.beyhan@basarsoft.com.tr, caglayan@basarsoft.com.tr'
+                Hatalar: $failureCount
+                Başarılı: $successCount
+
+                GEOMARKET Test Raporu ${BUILD_URL}allure/ adresinden incelenebilir.
+                Username: reportUser
+                Password: Basar1''', subject: 'Test Report', to: 'mert.sen@basarsoft.com.tr, testteam@basarsoft.com.tr, huseyin.arslan@basarsoft.com.tr, sule.hasdeniz@basarsoft.com.tr, hakan.beyhan@basarsoft.com.tr, caglayan@basarsoft.com.tr'
           }
         }
       }
