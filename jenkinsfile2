@@ -31,13 +31,14 @@ pipeline {
       }
     }
 
-    stage('Report') {
-      steps {
-        catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
-          publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: true, reportDir: 'C:\\ProgramData\\Jenkins\\.jenkins\\workspace\\GEOMARKET\\target\\site', reportFiles: 'surefire-report.html', reportName: 'HTML Report', reportTitles: ''])
-          bat "cd C:/ProgramData/Jenkins/.jenkins/workspace/GeoMarket"
-          bat "allure generate --clean -a"
-        }
+      stage('Report') {
+                 steps {
+                 catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
+                 bat  "cd C:/ProgramData/Jenkins/.jenkins/workspace/GeoMarket"
+                 bat "allure generate --clean -a"
+                   publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: true, reportDir: 'C:\\ProgramData\\Jenkins\\.jenkins\\workspace\\GeoMarket\\target\\site', reportFiles: 'surefire-report.html', reportName: 'HTML Report', reportTitles: ''])
+                   allure includeProperties: false, jdk: '', results: [[path: '*/allure-results']]
+                   }
       }
     }
 
