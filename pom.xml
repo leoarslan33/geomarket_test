@@ -162,23 +162,23 @@
 
                         <!--                        <include>*/seleniumTests/AramaYap/TC_hatArama.java</include>-->
                         <!--                        <include>*/seleniumTests/AramaYap/Idarisinirpafta.java</include>-->
-                                                <include>*/seleniumTests/TS_002_Uygulamadan_Çıkış/*.java</include>
+<!--                                                <include>*/seleniumTests/TS_002_Uygulamadan_Çıkış/*.java</include>-->
 
 
 
 
 
                         <!--                        Klasörde bulunan tüm classları sırasız çalıştırmak için -->
-                        <!--                        <include>*/seleniumTests/AramaYap/*.java</include>-->
-                        <!--                        <include>*/seleniumTests/CizimTasi/*.java</include>-->
+<!--                                                <include>*/seleniumTests/AramaYap/*.java</include>-->
+<!--                                                <include>*/seleniumTests/CizimTasi/*.java</include>-->
 
 
 
 
 
                         <!--                        Yazılmış olan tüm classları çalıştırmak için-->
-<!--                                                <include>*/seleniumTest/*/*.java</include>-->
-<!--                                                <include>*/seleniumTest/*/*/*.java</include>-->
+                                                <include>*/seleniumTest/*/*.java</include>
+                                                <include>*/seleniumTest/*/*/*.java</include>
 <!--                                                <include>*/seleniumTests/TS_0002_01_Uygulama_Arayüz_Üzerinden_Çıkış/*.java</include>-->
 
 
