@@ -162,8 +162,8 @@
 
                         <!--                        <include>*/seleniumTests/AramaYap/TC_hatArama.java</include>-->
                         <!--                        <include>*/seleniumTests/AramaYap/Idarisinirpafta.java</include>-->
-                        <!--                        <include>*/seleniumTests/AramaYap/GoogleArama.java</include>-->
-                        <!--                        -->
+                                                <include>*/seleniumTests/TS_002_Uygulamadan_Çıkış/*</include>
+
 
 
 

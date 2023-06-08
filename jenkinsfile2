@@ -1,69 +1,61 @@
-pipeline {
-  agent any
+       pipeline {
+         agent any
 
-  stages {
-    stage('Git') {
-      steps {
-        catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
-          echo 'Hello World'
-          git credentialsId: 'tfs test', url: 'http://ankaraofis.basarsoft.com.tr:1515/tfs/SEML/geomarket_test/_git/geomarket_test'
-        }
-      }
-    }
+         stages {
+           stage('Git') {
+             steps {
+                          catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
 
-    stage('Clean and Build') {
-      steps {
-        catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
-          bat "cd C:/ProgramData/Jenkins/.jenkins/workspace/GeoMarket"
-          bat "mvn clean"
-          bat "mvn compile"
-          bat "mvn validate"
-        }
-      }
-    }
+               echo 'Hello World'
+               git credentialsId: 'tfs test', url: 'http://ankaraofis.basarsoft.com.tr:1515/tfs/SEML/geomarket_test/_git/geomarket_test'
+             }
+             }
+           }
 
-    stage('Test') {
-      steps {
-        catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
-          bat "cd C:/ProgramData/Jenkins/.jenkins/workspace/GeoMarket"
-          bat 'mvn test surefire-report:report site'
-        }
-      }
-    }
+           stage('Clean and Built') {
+             steps {
+               catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
+               bat "cd C:/ProgramData/Jenkins/.jenkins/workspace/GeoMarket"
+               bat " mvn clean"
+               bat "mvn compile"
+               bat "mvn validate"
+             }
+             }
+           }
 
-      stage('Report') {
-                 steps {
-                 catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
-                 bat  "cd C:/ProgramData/Jenkins/.jenkins/workspace/GeoMarket"
-                 bat "allure generate --clean -a"
-                   publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: true, reportDir: 'C:\\ProgramData\\Jenkins\\.jenkins\\workspace\\GeoMarket\\target\\site', reportFiles: 'surefire-report.html', reportName: 'HTML Report', reportTitles: ''])
-                   allure includeProperties: false, jdk: '', results: [[path: '*/allure-results']]
-                   }
-      }
-    }
+           stage('Test') {
+             steps {
+               catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
+               bat "cd C:/ProgramData/Jenkins/.jenkins/workspace/GeoMarket"
+               bat 'mvn test surefire-report:report site'
+              }
+             }
+           }
+           stage('Report') {
+             steps {
+                catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
+               publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: true, reportDir: 'C:\\ProgramData\\Jenkins\\.jenkins\\workspace\\GeoMarket\\target\\site', reportFiles: 'surefire-report.html', reportName: 'HTML Report', reportTitles: ''])
+                bat  "cd C:/ProgramData/Jenkins/.jenkins/workspace/GeoMarket"
+                bat "allure generate --clean -a"
+               allure includeProperties: false, jdk: '', results: [[path: '*/allure-results']]
 
-    stage('Mail') {
-          steps {
-            catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
-              bat "cd C:/ProgramData/Jenkins/.jenkins/workspace/GeoMarket"
-              bat "allure generate --clean -a"
+             }
+             }
+           }
 
-              script {
-                def summaryJson = readJSON file: 'allure-report/widgets/summary.json'
-                def failureCount = summaryJson.statistic.failed
-                def successCount = summaryJson.statistic.passed
+           stage('Mail') {
+                        steps {
+                                catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
+                                emailext body: '''$PROJECT_NAME - Build # $BUILD_NUMBER
 
-                emailext body: '''$PROJECT_NAME - Build # $BUILD_NUMBER
+                                SHM Test Raporu ${BUILD_URL}allure/ adresinden incelenebilir.
+                                Username : reportUser
+                                Password  : Basar1''', subject: 'Test Report', to: 'mert.sen@basarsoft.com.tr'
+                        }
+                        }
+                      }
 
-                Hatalar: $failureCount
-                Başarılı: $successCount
 
-                GEOMARKET Test Raporu ${BUILD_URL}allure/ adresinden incelenebilir.
-                Username: reportUser
-                Password: Basar1''', subject: 'Test Report', to: 'mert.sen@basarsoft.com.tr, testteam@basarsoft.com.tr, huseyin.arslan@basarsoft.com.tr, sule.hasdeniz@basarsoft.com.tr, hakan.beyhan@basarsoft.com.tr, caglayan@basarsoft.com.tr'
-          }
-        }
-      }
-    }
-  }
-}
+
+         }
+       }
