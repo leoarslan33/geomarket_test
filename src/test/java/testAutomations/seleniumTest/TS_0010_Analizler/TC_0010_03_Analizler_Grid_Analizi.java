@@ -1,16 +1,13 @@
-package testAutomations.TS_0003_İl_İlçe_Mahalle_Sınırlarının_Görüntülenmesi;
+package testAutomations.seleniumTest.TS_0010_Analizler;
 
 import org.junit.Test;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import testAutomations.Kullanici;
-
-import java.security.Key;
 
 
 public class TC_0010_03_Analizler_Grid_Analizi extends testAutomations.TestBase {
@@ -19,7 +16,7 @@ public class TC_0010_03_Analizler_Grid_Analizi extends testAutomations.TestBase 
     @FindBy(css = "#kt_quick_panel > div.quick-panel-toggle > ul:nth-child(2) > li:nth-child(3) > a > i")
     public WebElement analizlerButonu;
 
-    @FindBy(xpath = "//div[contains(text(),'Grid Analizi')]")
+    @FindBy(css = "#kt_quick_panel_3 > div.navi.navi-icon-circle.navi-spacer-x-0 > a:nth-child(2)")
     public WebElement gridAnalizButonu;
 
     @FindBy(css = "#state-div > div:nth-child(1) > span > span.selection > span > ul > li > input")
@@ -61,6 +58,9 @@ public class TC_0010_03_Analizler_Grid_Analizi extends testAutomations.TestBase 
     @FindBy(css = "#DynamicGridPanel > div.jsPanel-ftr.active > button")
     public WebElement analizButonu;
 
+    @FindBy(id = "saved-analyses-name")
+    public WebElement adi;
+
     @Test
     public void testTC_0010_03_Analizler_Grid_Analizi() throws Exception {
         PageFactory.initElements(driver, this);
@@ -77,6 +77,10 @@ public class TC_0010_03_Analizler_Grid_Analizi extends testAutomations.TestBase 
 
         Fwait.until(ExpectedConditions.visibilityOf(gridAnalizButonu));
         gridAnalizButonu.click();
+
+        Fwait.until(ExpectedConditions.visibilityOf(adi));
+        adi.sendKeys("test");
+
 
         Fwait.until(ExpectedConditions.visibilityOf(ilSecimi));
         ilSecimi.click();

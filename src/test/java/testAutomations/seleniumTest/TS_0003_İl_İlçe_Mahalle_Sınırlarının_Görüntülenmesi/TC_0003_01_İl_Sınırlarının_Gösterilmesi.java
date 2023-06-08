@@ -1,4 +1,4 @@
-package testAutomations.TS_0003_İl_İlçe_Mahalle_Sınırlarının_Görüntülenmesi;
+package testAutomations.seleniumTest.TS_0003_İl_İlçe_Mahalle_Sınırlarının_Görüntülenmesi;
 
 import org.junit.Test;
 import org.openqa.selenium.JavascriptExecutor;
@@ -18,7 +18,7 @@ public class TC_0003_01_İl_Sınırlarının_Gösterilmesi extends testAutomatio
     @FindBy(xpath = "//label[contains(text(),'Adres')]")
     public WebElement adresAcılırMenu;
 
-    @FindBy(xpath = "//body/div[@id='kt_quick_panel']/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[1]/ul[1]/li[1]/a[1]/div[1]")
+    @FindBy(id = "#layer-item-2")
     public WebElement ilAcılırMenu;
 
     @Test
@@ -38,8 +38,10 @@ public class TC_0003_01_İl_Sınırlarının_Gösterilmesi extends testAutomatio
         Fwait.until(ExpectedConditions.visibilityOf(adresAcılırMenu));
         adresAcılırMenu.click();
 
-        Fwait.until(ExpectedConditions.visibilityOf(ilAcılırMenu));
-        ilAcılırMenu.click();
+//        Fwait.until(ExpectedConditions.visibilityOf(ilAcılırMenu));
+//        ilAcılırMenu.click();
+        Thread.sleep(3000);
+        js.executeScript("document.querySelector('#layer-item-2').click()");
 
         System.out.println("Test Tamamlandı!");
         Thread.sleep(3000);

@@ -11,7 +11,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import testAutomations.Kullanici;
 
 
-public class TC_0013_01_Haritaya_Bölge_Çiz_İşlemi_Başarılı extends testAutomations.TestBase {
+public class TC_0013_05_Haritaya_Bölge_Çiz_İşlemi_Düzenle_Başarılı extends testAutomations.TestBase {
     private String baseUrl;
 
     @FindBy(css = "#map-canvas > ul.flex-column.mt-4.nav.pb-3.pl-2.pr-2.pt-3.sticky-toolbar.sticky-toolbar-right.map-draw-tool > li:nth-child(2) > a > i")
@@ -19,6 +19,10 @@ public class TC_0013_01_Haritaya_Bölge_Çiz_İşlemi_Başarılı extends testAu
 
     @FindBy(xpath = "//div[@id='kt_content']")
     public WebElement haritaBölgeCiz;
+
+
+    @FindBy(css = "#feature_popup_div_width_buttons_demografik > div.card-footer.d-flex.justify-content-between.p-3 > button.btn.btn-sm.btn-icon.btn-light-primary")
+    public WebElement DüzenleButonu;
 
 
     @FindBy(css = "#feature_popup_div_width_buttons_demografik > div.card-footer.d-flex.justify-content-between.p-3 > button.btn.btn-sm.btn-light-success")
@@ -41,7 +45,7 @@ public class TC_0013_01_Haritaya_Bölge_Çiz_İşlemi_Başarılı extends testAu
 
 
     @Test
-    public void testTC_0013_01_Haritaya_Bölge_Çiz_İşlemi_Başarılı() throws Exception {
+    public void testTC_0013_05_Haritaya_Bölge_Çiz_İşlemi_Düzenle_Başarılı() throws Exception {
         PageFactory.initElements(driver, this);
         JavascriptExecutor js = (JavascriptExecutor) driver;
 
@@ -81,6 +85,16 @@ public class TC_0013_01_Haritaya_Bölge_Çiz_İşlemi_Başarılı extends testAu
         builder5.moveToElement(haritaBölgeCiz).moveByOffset(120, 0).release().perform();
         builder5.click().perform();
 
+        Fwait.until(ExpectedConditions.visibilityOf(DüzenleButonu));
+        DüzenleButonu.click();
+
+        Actions builder6 = new Actions(driver);
+        builder6.moveToElement(haritaBölgeCiz).clickAndHold().moveByOffset(120, 0).perform();
+        builder6.moveToElement(haritaBölgeCiz).clickAndHold().moveByOffset(120, -100).release().perform();
+        builder6.click().perform();
+
+
+
         Fwait.until(ExpectedConditions.visibilityOf(kaydetButonu));
         kaydetButonu.click();
 
@@ -97,7 +111,6 @@ public class TC_0013_01_Haritaya_Bölge_Çiz_İşlemi_Başarılı extends testAu
 
         Fwait.until(ExpectedConditions.visibilityOf(bölgeEkleKaydetButonu));
         bölgeEkleKaydetButonu.click();
-
 
 
         System.out.println("Test Tamamlandı!");
