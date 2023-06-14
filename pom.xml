@@ -179,7 +179,7 @@
                         <!--                        Yazılmış olan tüm classları çalıştırmak için-->
                                                 <include>*/seleniumTest/*/*.java</include>
                                                 <include>*/seleniumTest/*/*/*.java</include>
-<!--                                                <include>*/seleniumTests/TS_0002_01_Uygulama_Arayüz_Üzerinden_Çıkış/*.java</include>-->
+<!--                                                <include>*/src/test/java/testAutomations/seleniumTest/TS_0002_Uygulamadan_Çıkış</include>-->
 
 
 
