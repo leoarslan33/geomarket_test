@@ -50,10 +50,10 @@
 
                                 SHM Test Raporu ${BUILD_URL}allure/ adresinden incelenebilir.
                                 Username : reportUser
-                                Password  : Basar1''', subject: 'Test Report', to: 'mert.sen@basarsoft.com.tr', 'testteam@basarsoft.com.tr'
-                        }
-                        }
-                      }
+                                Password  : Basar1''', subject: 'Test Report', to: 'mert.sen@basarsoft.com.tr, testteam@basarsoft.com.tr, huseyin.arslan@basarsoft.com.tr, sule.hasdeniz@basarsoft.com.tr, hakan.beyhan@basarsoft.com.tr, caglayan@basarsoft.com.tr'
+                          }
+                                                        }
+                                                      }
 
 
 
