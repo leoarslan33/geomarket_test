@@ -144,7 +144,7 @@ public class TestBase extends TestCase {
             String name = getName();
             System.out.println(name);
             File screenshotFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
-            FileUtils.copyFile(screenshotFile, new File("C:/Users/mert.sen/Desktop/SSmania/" + name + "-" + screenshotfilename + ".png"));
+            FileUtils.copyFile(screenshotFile, new File("C:/Users/mert.sen/Desktop/geomarket/" + name + "-" + screenshotfilename + ".png"));
         } catch (Exception e) {
             Logger.warn("Resim çekilemedi.");
         }
