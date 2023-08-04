@@ -1,19 +1,12 @@
 package testAutomations.seleniumTest.TS_0007_Veri_Yönetimi_Nokta_Tablo_Yönetimi;
 
-import org.junit.Assert;
 import org.junit.Test;
-import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import testAutomations.Kullanici;
-
-import javax.swing.*;
-import java.awt.event.ActionEvent;
-import java.beans.PropertyChangeListener;
 
 public class TC_0007_01_Veri_Yönetimi_Nokta_Tablo_Yönetimi_Yeni_Tablo_Ekle extends testAutomations.TestBase {
     private String baseUrl;
@@ -36,13 +29,13 @@ public class TC_0007_01_Veri_Yönetimi_Nokta_Tablo_Yönetimi_Yeni_Tablo_Ekle ext
     @FindBy(xpath =  "//body/div[@id='TablePanel']/div[2]/div[2]/div[1]/div[2]/button[2]")
     public WebElement addPart;
 
-    @FindBy(css = "#TablePanel > div.jsPanel-content > div:nth-child(2) > div.card-body > div > div.row.show-grid.myrow.mb-5 > div.col-md-4 > input")
+    @FindBy(xpath = "//body/div[@id='TablePanel']/div[2]/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/input[1]")
     public WebElement addKolonName;
     
-    @FindBy(id="poi-edit-add-column-button")
+    @FindBy(xpath="//body/div[@id='TablePanel']/div[2]/div[2]/div[2]/div[1]/div[2]/div[1]/div[2]/select[1]")
     public WebElement takeLookUp;
 
-    @FindBy(css = "#TablePanel > div.jsPanel-content > div:nth-child(2) > div.card-body > div > div.row.show-grid.myrow.mb-5 > div:nth-child(2) > select > option:nth-child(2)")
+    @FindBy(xpath = "//option[contains(text(),'Evet / Hayır')]")
     public WebElement yesNo;
    
 
