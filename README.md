@@ -1,1 +1,1 @@
-Base selenium Projesi
+GeoMarket test otomasyon projesi

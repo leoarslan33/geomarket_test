@@ -23,6 +23,7 @@ import java.time.Duration;
 import java.util.*;
 
 
+
 /**
  * Created by Emre Örs
  * Selam Mert
@@ -36,7 +37,7 @@ public class TestBase extends TestCase {
     protected static FluentWait<WebDriver> Fwait;
     protected static Actions actions; //1. eklenecek yer.
     protected  static long randomLong = ((long)((Math.random() * 1000)+1000));
-    protected static final String SERVIS_ADRESI = "https://geomarkettest.basarsoft.com.tr/geomarket_pro/web/Login";
+    protected static final String SERVIS_ADRESI = "https://geomarkettest.basarsoft.com.tr/web/Login";
     protected String servisAdresi = SERVIS_ADRESI;
     protected static final Logger Logger = LoggerFactory.getLogger(TestBase.class);
     protected JavascriptExecutor scroll;
@@ -47,17 +48,21 @@ public class TestBase extends TestCase {
 
 
     @Before
+
+
     public void setUp() throws IOException {
         Locale.setDefault(new Locale("tr", "TR"));
 
         if (isHeadless) {
-            WebDriverManager.chromedriver().setup();
+            WebDriverManager.chromedriver().clearDriverCache().setup();
+            options.addArguments("--remote-allow-origins=*");
             driver = setup_localDriver(isHeadless);
         } else {
-            WebDriverManager.chromedriver().setup();
-            driver = new ChromeDriver();
-
+            WebDriverManager.chromedriver().clearDriverCache().setup();
+            options.addArguments("--remote-allow-origins=*");
+            driver = new ChromeDriver(options);
         }
+
         Logger.info("setUp(servisAdresi=" + servisAdresi + ").");
         actions = new Actions(driver); //2. eklenecek yer
         Fwait =
@@ -71,6 +76,7 @@ public class TestBase extends TestCase {
         options.addArguments("--disable-notifications");
         options.addArguments("disable-popup-blocking");
         options.addArguments("--start-maximized");
+        options.addArguments("--remote-allow-origins=*");
         Map<String, Object> prefs = new HashMap<String, Object>();
         Map<String, Object> profile = new HashMap<String, Object>();
         Map<String, Object> contentSettings = new HashMap<String, Object>();
@@ -81,10 +87,9 @@ public class TestBase extends TestCase {
         prefs.put("profile", profile);
         options.setExperimentalOption("prefs", prefs);
 
-        DesiredCapabilities capabilities = DesiredCapabilities.chrome();
-        capabilities.setCapability(ChromeOptions.CAPABILITY, options);
         driver.get(servisAdresi);
     }
+
 
 
 
@@ -96,10 +101,12 @@ public class TestBase extends TestCase {
 
         ChromeOptions options = new ChromeOptions();
         if (isHeadless) {
+            options.addArguments("--remote-allow-origins=*");
             options.addArguments("--headless");
             options.addArguments("--disable-gpu");
             options.addArguments("--window-size=1920,1080");
             options.addArguments("--disable-extensions");
+            options.addArguments("--remote-allow-origins=*");
         }
 
         options.setExperimentalOption("prefs", new HashMap<String, String>() {{put("intl.accept_languages", "tr,tr_TR");}});
